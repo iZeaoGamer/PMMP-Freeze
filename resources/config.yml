@@ -3,7 +3,7 @@
 # %arg% - Command argument on error  - Not supported yet
 
 # Enable auto bans? Set to true if you want this enabled.
-autoban: true
+autoban: false
 # Message that displays in chat (use %player%)
 autoban-msg: "§e%player% §fwas §cbanned§f because they logged out while frozen."
 # Message that displays for player.

@@ -19,7 +19,6 @@ use pocketmine\Player;
 use pocketmine\utils\TextFormat;
 use pocketmine\event\Listener;
 use pocketmine\entity\Entity;
-use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\event\player\PlayerQuitEvent;
 use pocketmine\event\player\PlayerMoveEvent;
 use pocketmine\event\player\PlayerCommandPreprocessEvent;
@@ -90,14 +89,6 @@ class Main extends PluginBase implements Listener {
 			}
 		}
 
-	}
-	public function onJoin(PlayerJoinEvent $event) : void {
-		$player = $event->getPlayer();
-		if(in_array($player->getName(), $this->frozen)) {
-			$player->setImmobile(true);
-			if($this->getConfig()->get("frozen-tag") === true) $player->setNameTag($this->freeze_tag.$player->getNametag()); //fix bug with purechat/perms
-			if($this->msgs["onjoin"] !== false) $player->sendMessage($this->freeze . $this->msgs["onjoin"]);
-		}
 	}
 	public function onQuit(PlayerQuitEvent $e) {
 		$player = $e->getPlayer();
